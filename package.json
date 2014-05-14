@@ -1,0 +1,27 @@
+{
+  "name": "ddp-srp",
+  "version": "0.8.1-1",
+  "description": "Node packaging of Meteor's SRP implementation",
+  "main": "srp.js",
+  "scripts": {
+    "test": "node srp_tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oortcloud/ddp-srp.git"
+  },
+  "keywords": [
+    "srp",
+    "ddp",
+    "meteor"
+  ],
+  "author": "emgee",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "1.5.2",
+    "ddp-random": "0.8.1-1"
+  },
+  "devDependencies": {
+    "test": "^0.6.0"
+  }
+}
