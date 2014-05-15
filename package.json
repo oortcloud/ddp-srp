@@ -22,6 +22,6 @@
     "ddp-random": "0.8.1-1"
   },
   "devDependencies": {
-    "test": "^0.6.0"
+    "test": "~0.6.0"
   }
 }
