@@ -101,7 +101,7 @@ Returns a confirmation if the client's proof is good:
  OR `null` if the client's proof doesn't match.
 
 
-###Default paramters
+###`_defaults`
 
 ```js
 /**
@@ -118,6 +118,46 @@ _defaults.k = new BigInteger(
     _defaults.N.toString(16) +
       _defaults.g.toString(16)),
   16);
+```
+
+###`paramsFromOptions`
+
+```js
+/**
+ * Process an options hash to create SRP parameters.
+ *
+ * Options can include:
+ * - hash: Function. Defaults to SHA256.
+ * - N: String or BigInteger. Defaults to 1024 bit value from RFC 5054
+ * - g: String or BigInteger. Defaults to 2.
+ * - k: String or BigInteger. Defaults to hash(N, g)
+ */
+var paramsFromOptions = function (options) {
+  if (!options) // fast path
+    return _defaults;
+
+  var ret = _.extend({}, _defaults);
+
+  _.each(['N', 'g', 'k'], function (p) {
+    if (options[p]) {
+      if (typeof options[p] === "string")
+        ret[p] = new BigInteger(options[p], 16);
+      else if (options[p] instanceof BigInteger)
+        ret[p] = options[p];
+      else
+        throw new Error("Invalid parameter: " + p);
+    }
+  });
+
+  if (options.hash)
+    ret.hash = function (x) { return options.hash(x).toLowerCase(); };
+
+  if (!options.k && (options.N || options.g || options.hash)) {
+    ret.k = ret.hash(ret.N.toString(16) + ret.g.toString(16));
+  }
+
+  return ret;
+};
 ```
 
 
