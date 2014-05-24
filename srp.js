@@ -1,7 +1,7 @@
 var BigInteger = require("./biginteger"),
     SHA256 = require("./sha256"),
     Random = require("ddp-random"),
-    _ = require("underscore");
+    _ = require("ddp-underscore-patched");
 
 SRP = {};
 

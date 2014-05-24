@@ -1,6 +1,6 @@
 {
   "name": "ddp-srp",
-  "version": "0.8.1-1",
+  "version": "0.8.1-2",
   "description": "Node packaging of Meteor's SRP implementation",
   "main": "srp.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "emgee",
   "license": "MIT",
   "dependencies": {
-    "underscore": "1.5.2",
+    "ddp-underscore-patched": "0.8.1-2",
     "ddp-random": "0.8.1-1"
   },
   "devDependencies": {

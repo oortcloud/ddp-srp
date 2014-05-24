@@ -1,5 +1,5 @@
 var SRP = require("./srp"),
-      _ = require("underscore");
+      _ = require("ddp-underscore-patched");
 
 var prepareTest = function (test) {
   test.isTrue = test.ok;
